@@ -124,7 +124,7 @@ export default class CardView extends Component {
 
     return (
       <View style={[s.cardContainer, containerSize]}>
-        <FlipCard style={{ borderWidth: 0 }}
+      { /* <FlipCard style={{ borderWidth: 0 }}
             flipHorizontal
             flipVertical={false}
             friction={10}
@@ -160,6 +160,7 @@ export default class CardView extends Component {
               </Text>
           </ImageBackground>
         </FlipCard>
+        */}
       </View>
     );
   }
