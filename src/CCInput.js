@@ -15,8 +15,8 @@ const s = StyleSheet.create({
   baseInputStyle: {
     color: "black",
     flex: 1,
-    paddingBottom: 6,
-    paddingTop: 3
+    paddingBottom: 8,
+    paddingTop: 5
   },
   
 });
