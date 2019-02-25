@@ -101,7 +101,7 @@ export default class CCInput extends Component {
               {this.props.cameraImage ?
               <TouchableWithoutFeedback onPress={()=> this.props.onCameraPress()}>
                 <View style={{ flex: 0.2 }}>
-                  <Image resizeMode='contain' style={{ height: 25, width: 25 }} source={require('./assets/Camera.png')} />
+                  <Image resizeMode='contain' style={{ height: 25, width: 25 }} source={require('../images/Camera.png')} />
                 </View> 
               </TouchableWithoutFeedback>
               : null
