@@ -79,7 +79,7 @@ export default class CCInput extends Component {
       <TouchableOpacity onPress={this.focus}
           activeOpacity={0.99}>
         <View style={[containerStyle]}>
-          { !!label && <Text style={[labelStyle, {marginVertical: 0, paddingVertical: 0}]}>{label}</Text>}
+          { !!label && <Text style={[labelStyle, {fontSize: 17, marginVertical: 0, paddingVertical: 0}]}>{label}</Text>}
           <View style={{flexDirection: 'row'}}>
             <TextInput ref="input"
               keyboardType={keyboardType}
@@ -88,13 +88,14 @@ export default class CCInput extends Component {
               style={[
                 s.baseInputStyle,
                 inputStyle,
-                ((validColor && status === "valid") ? { color: validColor } :
-                  (invalidColor && status === "invalid") ? { color: invalidColor } :
-                    {}),
+                ((validColor && status === "valid") ? { color: validColor, fontSize: 17 } :
+                  (invalidColor && status === "invalid") ? { color: invalidColor, fontSize: 17 } :
+                    {fontSize: 17 }),
               ]}
               underlineColorAndroid={"transparent"}
               placeholderColor={placeholderColor}
               placeholder={placeholder}
+              // placeholderStyle={{ fontSize: 17  }}
               value={value}
               onFocus={this._onFocus}
               onChangeText={this._onChange} />
@@ -112,3 +113,4 @@ export default class CCInput extends Component {
     );
   }
 }
+
