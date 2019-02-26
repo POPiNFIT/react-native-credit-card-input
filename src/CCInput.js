@@ -8,7 +8,8 @@ import {
   StyleSheet,
   ViewPropTypes,
   Image,
-  TouchableWithoutFeedback
+  TouchableWithoutFeedback,
+  Platform
 } from "react-native";
 
 const s = StyleSheet.create({
@@ -16,9 +17,10 @@ const s = StyleSheet.create({
     color: "black",
     flex: 1,
     paddingBottom: 8,
-    paddingTop: 5
+    paddingTop: 5,
+    paddingLeft: Platform.OS === "android" ? -5 : null
   },
-  
+
 });
 
 export default class CCInput extends Component {
@@ -52,10 +54,10 @@ export default class CCInput extends Component {
     containerStyle: {},
     inputStyle: {},
     labelStyle: {},
-    onFocus: () => {},
-    onChange: () => {},
-    onBecomeEmpty: () => {},
-    onBecomeValid: () => {},
+    onFocus: () => { },
+    onChange: () => { },
+    onBecomeEmpty: () => { },
+    onBecomeValid: () => { },
   };
 
   componentWillReceiveProps = newProps => {
@@ -73,14 +75,14 @@ export default class CCInput extends Component {
 
   render() {
     const { label, value, placeholder, status, keyboardType,
-            containerStyle, inputStyle, labelStyle,
-            validColor, invalidColor, placeholderColor } = this.props;
+      containerStyle, inputStyle, labelStyle,
+      validColor, invalidColor, placeholderColor } = this.props;
     return (
       <TouchableOpacity onPress={this.focus}
-          activeOpacity={0.99}>
+        activeOpacity={0.99}>
         <View style={[containerStyle]}>
-          { !!label && <Text style={[labelStyle, {fontSize: 17, marginVertical: 0, paddingVertical: 0}]}>{label}</Text>}
-          <View style={{flexDirection: 'row'}}>
+          {!!label && <Text style={[labelStyle, { fontSize: 17, marginVertical: 0, paddingVertical: 0 }]}>{label}</Text>}
+          <View style={{ flexDirection: 'row' }}>
             <TextInput ref="input"
               keyboardType={keyboardType}
               autoCapitalise="words"
@@ -88,9 +90,9 @@ export default class CCInput extends Component {
               style={[
                 s.baseInputStyle,
                 inputStyle,
-                ((validColor && status === "valid") ? { color: validColor, fontSize: 17 } :
-                  (invalidColor && status === "invalid") ? { color: invalidColor, fontSize: 17 } :
-                    {fontSize: 17 }),
+                ((validColor && status === "valid") ? { color: validColor, fontSize: 15 } :
+                  (invalidColor && status === "invalid") ? { color: invalidColor, fontSize: 15 } :
+                    { fontSize: 15 }),
               ]}
               underlineColorAndroid={"transparent"}
               placeholderColor={placeholderColor}
@@ -99,18 +101,17 @@ export default class CCInput extends Component {
               value={value}
               onFocus={this._onFocus}
               onChangeText={this._onChange} />
-              {this.props.cameraImage ?
-              <TouchableWithoutFeedback onPress={()=> this.props.onCameraPress()}>
-                <View style={{ flex: 0.2 }}>
+            {this.props.cameraImage ?
+              <TouchableWithoutFeedback onPress={() => this.props.onCameraPress()}>
+                <View style={[{ flex: 0.2 }, Platform.OS === "android" ? {padding: 10,} : null ]}>
                   <Image resizeMode='contain' style={{ height: 25, width: 25 }} source={require('../images/Camera.png')} />
-                </View> 
+                </View>
               </TouchableWithoutFeedback>
               : null
-              }
+            }
           </View>
         </View>
       </TouchableOpacity>
     );
   }
 }
-
