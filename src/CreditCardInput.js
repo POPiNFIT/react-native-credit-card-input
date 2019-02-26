@@ -23,8 +23,8 @@ const s = StyleSheet.create({
     marginHorizontal: 10
   },
   inputContainer: {
-    paddingBottom: 5,
-    paddingTop: 3
+    // paddingBottom: 5,
+    // paddingTop: 3
   },
   inputLabel: {
     // padding: 10,
