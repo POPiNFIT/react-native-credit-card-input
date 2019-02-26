@@ -20,17 +20,20 @@ const s = StyleSheet.create({
   },
   form: {
     marginTop: 20,
+    marginHorizontal: 10
   },
   inputContainer: {
+    paddingBottom: 5,
+    paddingTop: 3
   },
   inputLabel: {
-    padding: 10,
+    // padding: 10,
     fontSize: 18,
     fontWeight: "bold",
   },
   input: {
-    paddingLeft: 10,
-    paddingRight: 10,
+    // paddingLeft: 10,
+    // paddingRight: 10,
   },
 });
 
