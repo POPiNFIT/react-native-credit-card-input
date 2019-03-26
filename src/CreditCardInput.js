@@ -149,6 +149,7 @@ export default class CreditCardInput extends Component {
               containerStyle={[s.inputContainer, inputContainerStyle, { flex: 1, /*flexDirection: 'row',*/ justifyContent: 'space-between', borderBottomWidth: 1, borderColor: '#e3e3e3', width: CARD_NUMBER_INPUT_WIDTH }]} />}
           {requiresPostalCode &&
             <CCInput {...this._inputProps("postalCode")}
+              keyboardType="default"
               containerStyle={[s.inputContainer, inputContainerStyle, { flex: 1,/*flexDirection: 'row',*/ justifyContent: 'space-between', borderBottomWidth: 1, borderColor: '#e3e3e3', width: CARD_NUMBER_INPUT_WIDTH }]} />}
         </ScrollView>
       </View>
