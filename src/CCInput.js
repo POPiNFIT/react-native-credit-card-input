@@ -103,7 +103,7 @@ export default class CCInput extends Component {
               onChangeText={this._onChange} />
             {this.props.cameraImage ?
               <TouchableWithoutFeedback onPress={() => this.props.onCameraPress()}>
-                <View style={[{ flex: 0.2 }, Platform.OS === "android" ? {padding: 10,} : null ]}>
+                <View style={[{ flex: 0.2, padding: 10 }]}>
                   <Image resizeMode='contain' style={{ height: 25, width: 25 }} source={require('../images/Camera.png')} />
                 </View>
               </TouchableWithoutFeedback>
